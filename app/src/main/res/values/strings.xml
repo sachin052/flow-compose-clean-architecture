@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Flow Example</string>
     <string name="retry">Retry</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="back">Back</string>
+    <string name="post_details">Post Details</string>
 </resources>

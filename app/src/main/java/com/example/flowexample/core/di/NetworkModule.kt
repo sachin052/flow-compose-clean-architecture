@@ -1,6 +1,7 @@
 package com.example.flowexample.core.di
 
-import androidx.databinding.library.BuildConfig
+
+import com.example.flowexample.BuildConfig
 import com.example.flowexample.core.constants.AppConstants
 import com.example.flowexample.features.posts.data.datasources.remote.services.PostsApiService
 import dagger.Module

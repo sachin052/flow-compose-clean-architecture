@@ -8,7 +8,7 @@ import com.example.flowexample.features.posts.domain.repo.PostRepo
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetAllPostsUseCases @Inject constructor(private val postRepo: PostRepo) :
+open class GetAllPostsUseCases @Inject constructor(private val postRepo: PostRepo) :
     UseCaseNoParams<List<PostEntity>> {
     override suspend fun invoke(): Flow<Either<Failure, List<PostEntity>>> {
         return postRepo.getAllPosts()
