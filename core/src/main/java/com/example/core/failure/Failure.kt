@@ -1,4 +1,4 @@
-package com.example.flowexample.core.failure
+package com.example.core.failure
 
 sealed class Failure {
     object NetworkFailure : Failure()

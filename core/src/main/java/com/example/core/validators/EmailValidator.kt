@@ -1,4 +1,4 @@
-package com.example.flowexample.core.validators
+package com.example.core.validators
 
 // Email validation class
 class EmailValidator : FieldValidator<String> {

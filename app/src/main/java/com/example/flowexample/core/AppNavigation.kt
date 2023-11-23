@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.flowexample.core.routes.AppRoutes
+import com.example.core.routes.AppRoutes
 import com.example.flowexample.features.auth.LoginScreen
 import com.example.flowexample.features.posts.presentation.PostScreen
 

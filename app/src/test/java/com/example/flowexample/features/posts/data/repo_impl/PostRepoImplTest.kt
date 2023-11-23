@@ -1,9 +1,9 @@
 package com.example.flowexample.features.posts.data.repo_impl
 
-import com.example.flowexample.core.failure.Failure
-import com.example.flowexample.core.helpers.Either
-import com.example.flowexample.core.helpers.map
-import com.example.flowexample.core.helpers.safeFlowBuilder
+import com.example.core.failure.Failure
+import com.example.core.helpers.Either
+import com.example.core.helpers.map
+import com.example.core.helpers.safeFlowBuilder
 import com.example.flowexample.features.posts.data.datasource.remote.FakeApiService
 import com.example.flowexample.features.posts.data.datasources.remote.response.GetPostApiResponse
 import com.example.flowexample.features.posts.domain.mapper.toPostsEntities

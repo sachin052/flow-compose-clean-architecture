@@ -1,8 +1,8 @@
-package com.example.flowexample.core.helpers
+package com.example.core.helpers
 
-import com.example.flowexample.core.failure.Failure
-import com.example.flowexample.core.helpers.Either.Left
-import com.example.flowexample.core.helpers.Either.Right
+import com.example.core.failure.Failure
+import com.example.core.helpers.Either.Left
+import com.example.core.helpers.Either.Right
 
 sealed class Either<out L, out R> {
     data class Left<out L>(val l: L) : Either<L, Nothing>()

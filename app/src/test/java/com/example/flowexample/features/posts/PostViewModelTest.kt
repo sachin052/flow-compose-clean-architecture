@@ -1,8 +1,8 @@
 package com.example.flowexample.features.posts
 
 import app.cash.turbine.test
-import com.example.flowexample.core.failure.Failure
-import com.example.flowexample.core.helpers.Either
+import com.example.core.failure.Failure
+import com.example.core.helpers.Either
 import com.example.flowexample.features.posts.domain.entity.PostEntity
 import com.example.flowexample.features.posts.domain.use_cases.GetAllPostsUseCasesTest
 import com.example.flowexample.features.posts.presentation.PostViewModel

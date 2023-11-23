@@ -1,4 +1,4 @@
-package com.example.flowexample.core.validators
+package com.example.core.validators
 
 interface FieldValidator<T> {
 

@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.example.flowexample.core.routes.AppRoutes
+import com.example.core.routes.AppRoutes
 
 @Composable
 fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hiltViewModel()) {

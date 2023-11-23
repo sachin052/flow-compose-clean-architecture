@@ -1,4 +1,4 @@
-package com.example.flowexample.core.routes
+package com.example.core.routes
 
 enum class AppRoutes(val routeName:String) {
     LOGIN("login"),

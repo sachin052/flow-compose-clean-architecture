@@ -2,8 +2,8 @@ package com.example.flowexample.core.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.flowexample.core.failure.Failure
-import com.example.flowexample.core.helpers.Either
+import com.example.core.failure.Failure
+import com.example.core.helpers.Either
 import com.example.flowexample.core.views.ViewStatus
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

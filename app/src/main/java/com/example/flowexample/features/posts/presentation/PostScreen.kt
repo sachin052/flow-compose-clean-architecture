@@ -6,15 +6,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -27,7 +29,8 @@ import com.example.flowexample.R
 import com.example.flowexample.core.views.ViewStateHandler
 import com.example.flowexample.features.posts.domain.entity.PostEntity
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter", "UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun PostScreen(navController: NavHostController, postViewModel: PostViewModel = hiltViewModel()) {
     val state = postViewModel.uiState.collectAsState()
@@ -71,15 +74,15 @@ fun PostCard(postEntity: PostEntity) {
         ) {
             Text(
                 text = "User ID: ${postEntity.userID}",
-                style = MaterialTheme.typography.h6
+                style = MaterialTheme.typography.titleMedium
             )
             Text(
                 text = "Title: ${postEntity.postTitle}",
-                style = MaterialTheme.typography.body1
+                style = MaterialTheme.typography.titleSmall
             )
             Text(
                 text = "Body: ${postEntity.postBody}",
-                style = MaterialTheme.typography.body2
+                style = MaterialTheme.typography.bodyMedium
             )
         }
     }

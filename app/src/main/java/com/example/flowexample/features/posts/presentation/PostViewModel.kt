@@ -1,6 +1,6 @@
 package com.example.flowexample.features.posts.presentation
 
-import com.example.flowexample.core.helpers.Either
+import com.example.core.helpers.Either
 import com.example.flowexample.core.viewmodel.MyViewModel
 import com.example.flowexample.features.posts.domain.use_cases.GetAllPostsUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel

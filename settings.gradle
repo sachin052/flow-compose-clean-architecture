@@ -1,3 +1,4 @@
 rootProject.name = "Flow Example"
 include ':app'
 //include ':core'
+include ':core'

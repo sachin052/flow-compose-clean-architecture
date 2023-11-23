@@ -1,7 +1,7 @@
-package com.example.flowexample.core.helpers
+package com.example.core.helpers
 
 
-import com.example.flowexample.core.failure.Failure
+import com.example.core.failure.Failure
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

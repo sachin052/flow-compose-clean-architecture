@@ -1,8 +1,8 @@
 package com.example.flowexample.features.auth
 
 import androidx.lifecycle.viewModelScope
-import com.example.flowexample.core.validators.EmailValidator
-import com.example.flowexample.core.validators.PasswordValidator
+import com.example.core.validators.EmailValidator
+import com.example.core.validators.PasswordValidator
 import com.example.flowexample.core.viewmodel.MyViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
