@@ -14,5 +14,4 @@ open class GetAllPostsUseCases @Inject constructor(private val postRepo: PostRep
         return postRepo.getAllPosts()
     }
 
-
 }

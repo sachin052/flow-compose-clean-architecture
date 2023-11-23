@@ -5,6 +5,7 @@ import com.example.flowexample.R
 
 
 sealed class ViewStatus {
+    object Inital : ViewStatus()
     object Loading : ViewStatus()
 
     object Success : ViewStatus()

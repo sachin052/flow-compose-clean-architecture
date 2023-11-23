@@ -22,11 +22,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.flowexample.core.routes.AppRoutes
 
 @Composable
 fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hiltViewModel()) {
+
 
     // Main column containing the login UI
     Column(
@@ -55,10 +57,10 @@ fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hi
         // Input fields for email and password
         Column(modifier = Modifier.weight(2f)) {
             OutlinedTextField(
-                value = viewModel.email.collectAsState().value?:"",
+                value = viewModel.email.collectAsStateWithLifecycle().value?:"",
                 onValueChange = { viewModel.setEmail(it) },
                 label = { Text("Email") },
-                isError = !viewModel.isEmailValid.collectAsState().value,
+                isError = !viewModel.isEmailValid.collectAsStateWithLifecycle().value,
                 keyboardActions = KeyboardActions(
                     onNext = { /* Handle action */ }
                 ),
@@ -87,7 +89,10 @@ fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hi
 
             // Login button
             Button(
-                onClick = { navHostController.navigate(AppRoutes.POST_SCREEN.routeName) },
+                onClick = {
+                        navHostController.navigate(AppRoutes.POST_SCREEN.routeName)
+
+                          },
                 enabled = viewModel.isEmailValid.collectAsState().value &&
                         viewModel.isPasswordValid.collectAsState().value,
                 modifier = Modifier

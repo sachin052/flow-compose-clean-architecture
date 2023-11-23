@@ -6,7 +6,7 @@ import com.example.flowexample.core.helpers.map
 import com.example.flowexample.core.helpers.safeFlowBuilder
 import com.example.flowexample.features.posts.data.datasources.remote.response.GetPostApiResponse
 import com.example.flowexample.features.posts.data.datasources.remote.services.PostsApiService
-import com.example.flowexample.features.posts.data.mapper.toPostsEntities
+import com.example.flowexample.features.posts.domain.mapper.toPostsEntities
 import com.example.flowexample.features.posts.domain.repo.PostRepo
 import com.example.flowexample.features.posts.domain.entity.PostEntity
 import kotlinx.coroutines.flow.Flow

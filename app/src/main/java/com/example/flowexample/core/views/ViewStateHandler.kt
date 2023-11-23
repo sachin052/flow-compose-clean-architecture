@@ -1,9 +1,6 @@
 package com.example.flowexample.core.views
 
 import androidx.compose.runtime.Composable
-import com.example.flowexample.core.views.ErrorView
-import com.example.flowexample.core.views.LoadingView
-import com.example.flowexample.core.views.ViewStatus
 
 @Composable
 fun<T> ViewStateHandler(
@@ -16,5 +13,6 @@ fun<T> ViewStateHandler(
         is ViewStatus.Loading -> onLoading()
         is ViewStatus.Success -> onSuccess()
         is ViewStatus.Error -> onError(viewState)
+        else -> {onLoading()}
     }
 }

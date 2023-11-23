@@ -1,7 +1,7 @@
 package com.example.flowexample.core.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.flowexample.core.failure.Failure
 import com.example.flowexample.core.helpers.Either
 import com.example.flowexample.core.views.ViewStatus
@@ -9,11 +9,16 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.stateIn
 
 open class MyViewModel : ViewModel() {
-    val uiState = MutableLiveData<ViewStatus>()
+    private var mutableUIState = MutableStateFlow<ViewStatus>(ViewStatus.Inital)
+    var uiState = mutableUIState.stateIn(viewModelScope,
+        SharingStarted.WhileSubscribed(),ViewStatus.Inital)
+
 
     /**
      * This is the job for all coroutines started by this ViewModel.
@@ -35,18 +40,18 @@ open class MyViewModel : ViewModel() {
     //    helper function to execute the api
     fun <T> executeApi(call: suspend () -> Flow<Either<Failure, T>>): Flow<Either<Failure, T>> {
         return flow {
-            uiState.postValue(ViewStatus.Loading)
+            mutableUIState.value=ViewStatus.Loading
             call.invoke().collect { value ->
 
                 when (value) {
                     is Either.Left -> {
-                        uiState.postValue(ViewStatus.Error("Something went wrong", action = {
+                        mutableUIState.value=ViewStatus.Error("Something went wrong", action = {
                             executeApi(call)
-                        }))
+                        })
                         emit(value = value)
                     }
                     is Either.Right -> {
-                        uiState.postValue(ViewStatus.Success)
+                        mutableUIState.value=ViewStatus.Success
                         emit(value = value)
                     }
                 }

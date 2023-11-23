@@ -1,4 +1,4 @@
-package com.example.flowexample.features.posts.data.mapper
+package com.example.flowexample.features.posts.domain.mapper
 
 import com.example.flowexample.features.posts.data.datasources.remote.response.GetPostApiResponse
 import com.example.flowexample.features.posts.domain.entity.PostEntity

@@ -1,4 +1,4 @@
-package com.example.flowexample.ui.theme
+package com.example.flowexample.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.example.flowexample.ui.theme
+package com.example.flowexample.core.ui.theme
 
 import android.app.Activity
 import android.os.Build

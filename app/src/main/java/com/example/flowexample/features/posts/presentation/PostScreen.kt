@@ -22,17 +22,16 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.asFlow
 import androidx.navigation.NavHostController
 import com.example.flowexample.R
 import com.example.flowexample.core.views.ViewStateHandler
-import com.example.flowexample.core.views.ViewStatus
 import com.example.flowexample.features.posts.domain.entity.PostEntity
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun PostScreen(navController: NavHostController, postViewModel: PostViewModel = hiltViewModel()) {
-    val state = postViewModel.uiState.asFlow().collectAsState(initial = ViewStatus.Loading)
+    val state = postViewModel.uiState.collectAsState()
+
     val allPostItems = postViewModel.allItems.collectAsState(initial = emptyList()).value
     Scaffold(
         topBar = {
