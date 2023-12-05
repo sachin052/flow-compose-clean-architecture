@@ -4,8 +4,8 @@ object Dependencies {
 
     //UI
     const val material3="androidx.compose.material3:material3"
-    const val composeBom = "androidx.compose:compose-bom:${Versions.composeBom}"
-    const val composeUi = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeBom = "androidx.compose:compose-bom:${Versions.composeBomVersion}"
+    const val composeUi = "androidx.compose.ui:ui:${Versions.composeVersion}"
 
 
     // retrofit
@@ -29,12 +29,12 @@ object Dependencies {
         "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycleKtxVersion}"
     const val lifecycleComposeKtx =
         "androidx.lifecycle:lifecycle-runtime-compose:${Versions.lifecycleKtxVersion}"
-    const val activityKtx = "androidx.core:core-ktx:${Versions.compose}}"
+    const val activityKtx = "androidx.core:core-ktx:${Versions.composeVersion}}"
 
     const val appCompact = "androidx.appcompat:appcompat:${Versions.appCompact}"
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin_version}"
-    const val activityCompose = "androidx.activity:activity-compose:${Versions.compose}"
-    const val androidCoreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
+    const val activityCompose = "androidx.activity:activity-compose:${Versions.composeVersion}"
+    const val androidCoreKtx = "androidx.core:core-ktx:${Versions.coreKtxVersion}"
 
     const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines_version}"
     const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines_version}"
@@ -69,6 +69,7 @@ object Dependencies {
     const val javapoet = "com.squareup:javapoet:${Versions.javapoetVersion}"
     const val composeToolingPreview = "androidx.compose.ui:ui-tooling-preview"
     const val composeUITooling = "androidx.compose.ui:ui-tooling"
+    const val androidMaterial = "com.google.android.material:material:${Versions.androidMaterialVersion}"
 
 
 }

@@ -47,17 +47,17 @@ dependencies {
 
     implementation(Dependencies.androidCoreKtx)
     implementation(Dependencies.appCompact)
-    implementation("com.google.android.material:material:1.10.0")
+    implementation(Dependencies.androidMaterial)
 
     retrofit()
     hilt()
 
-    val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
+    val composeBom = platform(Dependencies.composeBom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
     // Material Design 3
-    implementation("androidx.compose.material3:material3")
+    implementation(Dependencies.material3)
 
 
     implementation(Dependencies.coroutineCore)
