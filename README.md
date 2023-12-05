@@ -66,9 +66,9 @@ Before delving into the details of the project, let's introduce a key component 
 
 ## Key Concepts
 
-### 1. MyViewModel Class
+### 1. CoreViewModel Class
 
-The `MyViewModel` class is central to the project, designed to execute API calls using generic methods. This helps eliminate the manual handling of common states like Loading, Success, or Failure, ensuring a consistent approach to managing API calls throughout the application.
+The `CoreViewModel` class is central to the project, designed to execute API calls using generic methods. This helps eliminate the manual handling of common states like Loading, Success, or Failure, ensuring a consistent approach to managing API calls throughout the application.
 
 ```kotlin
    fun <T> executeApi(call: suspend () -> Flow<Either<Failure, T>>): Flow<Either<Failure, T>> {
@@ -175,7 +175,7 @@ Copy code
 // In PostScreenViewModel
 class PostScreenViewModel(
     private val getAllPostsUseCase: GetAllPostsUseCase
-) : MyViewModel() {
+) : CoreViewModel() {
 
    // Collecting allItems flow to display a list of items
      val allItems = executeApi { getAllPostsUseCases.invoke() }.map { value ->  when(value){
@@ -184,7 +184,7 @@ class PostScreenViewModel(
     } }
 }
 ```
-This example showcases how the MyViewModel class, safeFlowBuilder, and GetAllPostsUseCase work together to handle the API call and manage the UI states seamlessly.
+This example showcases how the CoreViewModel class, safeFlowBuilder, and GetAllPostsUseCase work together to handle the API call and manage the UI states seamlessly.
 
 
 ## Contributing
