@@ -1,9 +1,8 @@
-package com.example.flowexample.core.di
+package com.example.core.di
 
 
+import com.example.core.BuildConfig
 import com.example.core.constants.AppConstants
-import com.example.flowexample.BuildConfig
-import com.example.flowexample.features.posts.data.datasources.remote.services.PostsApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,10 +38,5 @@ class NetworkModule {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun provideSearchAppService(retrofit: Retrofit): PostsApiService {
-        return retrofit.create(PostsApiService::class.java)
-    }
 }
 

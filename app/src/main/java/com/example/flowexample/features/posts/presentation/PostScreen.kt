@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Card
@@ -24,15 +23,14 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
+import com.example.core.views.ViewStateHandler
 import com.example.flowexample.R
-import com.example.flowexample.core.views.ViewStateHandler
 import com.example.flowexample.features.posts.domain.entity.PostEntity
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter", "UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun PostScreen(navController: NavHostController, postViewModel: PostViewModel = hiltViewModel()) {
+fun PostScreen(postViewModel: PostViewModel = hiltViewModel()) {
     val state = postViewModel.uiState.collectAsState()
 
     val allPostItems = postViewModel.allItems.collectAsState(initial = emptyList()).value
@@ -41,7 +39,7 @@ fun PostScreen(navController: NavHostController, postViewModel: PostViewModel = 
             TopAppBar(
                 title = { Text(stringResource(R.string.post_details)) },
                 navigationIcon = {
-                    IconButton(onClick = { /* Handle navigation here */ }) {
+                    IconButton(onClick = {  }) {
                         Icon(Icons.Default.Home, contentDescription = stringResource(R.string.back))
                     }
                 }
@@ -49,7 +47,7 @@ fun PostScreen(navController: NavHostController, postViewModel: PostViewModel = 
         },
         content = {
             ViewStateHandler<List<PostEntity>>(viewState = state.value) {
-                LazyColumn {
+                LazyColumn(modifier = Modifier.padding(it)) {
                     items(allPostItems) { post ->
                         // For each post in the list, display a PostCard
                         PostCard(post)

@@ -1,4 +1,4 @@
-package com.example.flowexample.core.views
+package com.example.core.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.core.R
 
 @Composable
 fun LoadingView() {
@@ -45,7 +46,7 @@ fun ErrorView(errorState: ViewStatus.Error) {
             modifier = Modifier.padding(16.dp)
         ) {
             Text(
-                text = "Error: ${errorState.message}",
+                text = stringResource(id = R.string.error_message,errorState.message),
                 textAlign = TextAlign.Center,
                 color = Color.Red
             )

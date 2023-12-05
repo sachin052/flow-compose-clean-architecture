@@ -1,7 +1,7 @@
-package com.example.flowexample.core.views
+package com.example.core.views
 
 import androidx.annotation.StringRes
-import com.example.flowexample.R
+import com.example.core.R
 
 
 sealed class ViewStatus {

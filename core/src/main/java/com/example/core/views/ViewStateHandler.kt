@@ -1,4 +1,4 @@
-package com.example.flowexample.core.views
+package com.example.core.views
 
 import androidx.compose.runtime.Composable
 

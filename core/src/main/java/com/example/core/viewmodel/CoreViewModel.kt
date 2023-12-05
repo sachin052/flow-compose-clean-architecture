@@ -1,10 +1,10 @@
-package com.example.flowexample.core.viewmodel
+package com.example.core.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.failure.Failure
 import com.example.core.helpers.Either
-import com.example.flowexample.core.views.ViewStatus
+import com.example.core.views.ViewStatus
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -14,10 +14,10 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 
-open class MyViewModel : ViewModel() {
+open class CoreViewModel : ViewModel() {
     private var mutableUIState = MutableStateFlow<ViewStatus>(ViewStatus.Inital)
     var uiState = mutableUIState.stateIn(viewModelScope,
-        SharingStarted.WhileSubscribed(),ViewStatus.Inital)
+        SharingStarted.WhileSubscribed(), ViewStatus.Inital)
 
 
     /**
@@ -40,22 +40,23 @@ open class MyViewModel : ViewModel() {
     //    helper function to execute the api
     fun <T> executeApi(call: suspend () -> Flow<Either<Failure, T>>): Flow<Either<Failure, T>> {
         return flow {
-            mutableUIState.value=ViewStatus.Loading
-            call.invoke().collect { value ->
 
-                when (value) {
-                    is Either.Left -> {
-                        mutableUIState.value=ViewStatus.Error("Something went wrong", action = {
-                            executeApi(call)
-                        })
-                        emit(value = value)
-                    }
-                    is Either.Right -> {
-                        mutableUIState.value=ViewStatus.Success
-                        emit(value = value)
+                mutableUIState.value= ViewStatus.Loading
+                call.invoke().collect { value ->
+
+                    when (value) {
+                        is Either.Left -> {
+                            mutableUIState.value= ViewStatus.Error("Something went wrong", action = {
+                                executeApi(call)
+                            })
+                            emit(value = value)
+                        }
+                        is Either.Right -> {
+                            mutableUIState.value= ViewStatus.Success
+                            emit(value = value)
+                        }
                     }
                 }
-            }
 
         }
     }

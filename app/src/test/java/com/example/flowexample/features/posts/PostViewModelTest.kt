@@ -1,6 +1,8 @@
 package com.example.flowexample.features.posts
 
 import app.cash.turbine.test
+import assertk.assertThat
+import assertk.assertions.isEqualTo
 import com.example.core.failure.Failure
 import com.example.core.helpers.Either
 import com.example.flowexample.features.posts.domain.entity.PostEntity
@@ -11,9 +13,8 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.assertEquals
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
@@ -31,7 +32,7 @@ class PostViewModelTest {
     @InjectMocks
     lateinit var postViewModel: PostViewModel
 
-    @Before
+    @BeforeEach
     fun setup() {
         MockitoAnnotations.openMocks(this)
     }
@@ -46,7 +47,7 @@ class PostViewModelTest {
         postViewModel.allItems.test {
             // Trigger the flow
             postViewModel.allItems
-            assertEquals(awaitItem().size,1 )
+            assertThat(awaitItem().size ).isEqualTo(1)
             awaitComplete()
 
         }
@@ -62,7 +63,7 @@ class PostViewModelTest {
         postViewModel.allItems.test {
             // Trigger the flow
             postViewModel.allItems
-            assertEquals(awaitItem().size,0 )
+            assertThat(awaitItem().size).isEqualTo(0)
             awaitComplete()
         }
     }

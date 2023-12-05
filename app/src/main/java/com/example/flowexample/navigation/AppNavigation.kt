@@ -1,4 +1,4 @@
-package com.example.flowexample.core
+package com.example.flowexample.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -14,14 +14,14 @@ fun AppNavigation() {
 
     NavHost(
         navController = navController,
-        startDestination = AppRoutes.LOGIN.routeName
+        startDestination = AppRoutes.POST_SCREEN.routeName
     ) {
         composable(AppRoutes.LOGIN.routeName) {
             // Composable for the home screen
             LoginScreen(navController)
         }
         composable(AppRoutes.POST_SCREEN.routeName) {
-            PostScreen(navController)
+            PostScreen()
         }
     }
 }

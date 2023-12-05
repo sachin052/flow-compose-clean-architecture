@@ -1,9 +1,12 @@
 package com.example.flowexample.features.posts.data.datasources.remote.response
 
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 class GetPostApiResponse : ArrayList<GetPostApiResponse.GetPostApiResponseItem>(){
+    @Keep
     data class GetPostApiResponseItem(
         @SerializedName("body")
         val body: String,

@@ -3,13 +3,13 @@ package com.example.flowexample.features.auth
 import androidx.lifecycle.viewModelScope
 import com.example.core.validators.EmailValidator
 import com.example.core.validators.PasswordValidator
-import com.example.flowexample.core.viewmodel.MyViewModel
+import com.example.core.viewmodel.CoreViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class LoginViewModel : MyViewModel() {
+class LoginViewModel : CoreViewModel() {
 
     // Input fields
     private val _email = MutableStateFlow<String?>(null)

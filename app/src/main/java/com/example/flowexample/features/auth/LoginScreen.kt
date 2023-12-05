@@ -1,7 +1,6 @@
 package com.example.flowexample.features.auth
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,12 +18,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.core.dimens.Dimens
 import com.example.core.routes.AppRoutes
+import com.example.flowexample.R
 
 @Composable
 fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hiltViewModel()) {
@@ -34,88 +35,88 @@ fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hi
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(Dimens.spacingLarge)
             .background(Color.White),
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
 
         // Header section with the "Login" title
         Column(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(Dimens.weight1F),
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Login",
+                text = stringResource(R.string.login),
                 style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp),
+                    .padding(Dimens.spacingMedium),
                 color = Color.Black
             )
         }
 
         // Input fields for email and password
-        Column(modifier = Modifier.weight(2f)) {
+        Column(modifier = Modifier.weight(Dimens.weight2F)) {
             OutlinedTextField(
-                value = viewModel.email.collectAsStateWithLifecycle().value?:"",
+                value = viewModel.email.collectAsStateWithLifecycle().value ?: "",
                 onValueChange = { viewModel.setEmail(it) },
-                label = { Text("Email") },
+                label = { Text(stringResource(R.string.email)) },
                 isError = !viewModel.isEmailValid.collectAsStateWithLifecycle().value,
                 keyboardActions = KeyboardActions(
-                    onNext = { /* Handle action */ }
+                    onNext = {  }
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp)
+                    .padding(Dimens.spacingMedium)
             )
 
             OutlinedTextField(
-                value = viewModel.password.collectAsState().value?:"",
+                value = viewModel.password.collectAsState().value ?: "",
                 onValueChange = { viewModel.setPassword(it) },
                 visualTransformation = PasswordVisualTransformation(),
-                label = { Text("Password") },
+                label = { Text(stringResource(R.string.password)) },
 
                 isError = !viewModel.isPasswordValid.collectAsState().value,
                 keyboardActions = KeyboardActions(
-                    onDone = { /* Handle action */ }
+                    onDone = {
+                    }
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp)
+                    .padding(Dimens.spacingMedium)
             )
 
             // Spacer for layout separation
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(Dimens.spacingLarge))
 
             // Login button
             Button(
                 onClick = {
-                        navHostController.navigate(AppRoutes.POST_SCREEN.routeName)
+                    navHostController.navigate(AppRoutes.POST_SCREEN.routeName)
 
-                          },
+                },
                 enabled = viewModel.isEmailValid.collectAsState().value &&
                         viewModel.isPasswordValid.collectAsState().value,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp)
-                    .padding(8.dp)
+                    .height(Dimens.dimens50Dp)
+                    .padding(Dimens.spacingMedium)
             ) {
-                Text("Login")
+                Text(stringResource(id = R.string.login))
             }
 
             // Spacer for layout separation
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(Dimens.spacingLarge))
 
             // Sign-up link
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                Text("Don't have an account? ")
+                Text(stringResource(R.string.don_t_have_an_account))
                 Text(
-                    text = "Sign up",
+                    text = stringResource(R.string.sign_up),
                     color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.clickable { /* Handle sign up click */ }
                 )
             }
         }
