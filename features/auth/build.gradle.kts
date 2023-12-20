@@ -1,38 +1,33 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    kotlin("kapt")
     id("de.mannodermaus.android-junit5") version "1.10.0.0"
 }
 
 android {
-    compileSdkVersion = "android-34"
-
+    namespace = "com.example.auth"
+    compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.flowexample"
         minSdk = 23
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunnerArguments
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // Use JUnit 5 for local unit tests
         testInstrumentationRunnerArguments["runnerBuilder"] =
             "de.mannodermaus.junit5.AndroidJUnit5Builder"
-        vectorDrawables {
-            useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
-
-    buildFeatures {
-        dataBinding = true
-    }
-    namespace = "com.example.flowexample"
-
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -41,30 +36,19 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        dataBinding = true
         compose = true
     }
-
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtensionVersion
-    }
-
-    packaging {
-        resources {
-            excludes.add("/META-INF/{AL2.0,LGPL2.1}")
-        }
     }
     hilt {
         enableAggregatingTask = false
     }
-
 }
 
 dependencies {
-
     implementation(project(mapOf("path" to ":core")))
-    implementation(project(mapOf("path" to ":features:posts")))
-    implementation(project(mapOf("path" to ":features:auth")))
-
 
     implementation(Dependencies.kotlinStdlib)
     implementation(Dependencies.appCompact)
@@ -75,10 +59,15 @@ dependencies {
     // DI
     hilt()
 
+    // COROUTINES
+    implementation(Dependencies.coroutineAndroid)
 
+    // LIFECYCLE
+    lifecycleExtensionKtx()
 
-//    // LIFECYCLE
-//    lifecycleExtensionKtx()
+    // navigation
+    implementation(Dependencies.hiltNavigationCompose)
+    implementation(Dependencies.navigationCompose)
 
     // Compose
     val composeBom = platform(Dependencies.composeBom)
@@ -90,10 +79,7 @@ dependencies {
 
     // helps for checking preview and tooling
     androidCompseTooling()
-
-    // navigation
-    implementation(Dependencies.hiltNavigationCompose)
-    implementation(Dependencies.navigationCompose)
+    
 
     // (Required) Writing and executing Unit Tests on the JUnit Platform
     testImplementation(Dependencies.junitJupiterApi)
@@ -111,8 +97,4 @@ dependencies {
     // Coroutine Test
     testImplementation(Dependencies.kotlinxCoroutinesTest)
     testImplementation(Dependencies.turbine)
-
-    implementation(Dependencies.javapoet)
-
-
 }

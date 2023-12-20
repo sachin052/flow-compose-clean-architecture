@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.auth.LoginScreen
 import com.example.core.routes.AppRoutes
-import com.example.flowexample.features.auth.LoginScreen
-import com.example.flowexample.features.posts.presentation.PostScreen
+import com.example.feature.posts.presentation.PostScreen
 
 @Composable
 fun AppNavigation() {
@@ -17,7 +17,6 @@ fun AppNavigation() {
         startDestination = AppRoutes.POST_SCREEN.routeName
     ) {
         composable(AppRoutes.LOGIN.routeName) {
-            // Composable for the home screen
             LoginScreen(navController)
         }
         composable(AppRoutes.POST_SCREEN.routeName) {

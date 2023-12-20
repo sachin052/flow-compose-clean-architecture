@@ -5,9 +5,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.core.failure.Failure
 import com.example.core.helpers.Either
 import com.example.core.views.ViewStatus
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -19,23 +16,6 @@ open class CoreViewModel : ViewModel() {
     var uiState = mutableUIState.stateIn(viewModelScope,
         SharingStarted.WhileSubscribed(), ViewStatus.Inital)
 
-
-    /**
-     * This is the job for all coroutines started by this ViewModel.
-     * Cancelling this job will cancel all coroutines started by this ViewModel.
-     */
-    protected val viewModelJob = Job()
-
-    /**
-     * This is the main scope for all coroutines launched by MainViewModel.
-     * Since we pass viewModelJob, you can cancel all coroutines
-     * launched by uiScope by calling viewModelJob.cancel()
-     */
-    protected val coroutineScope = CoroutineScope(Dispatchers.IO + viewModelJob)
-
-    /**
-     * Cancel all coroutines when the ViewModel is cleared
-     */
 
     //    helper function to execute the api
     fun <T> executeApi(call: suspend () -> Flow<Either<Failure, T>>): Flow<Either<Failure, T>> {

@@ -2,3 +2,5 @@ rootProject.name = "Flow Example"
 include ':app'
 //include ':core'
 include ':core'
+include ':features:posts'
+include ':features:auth'
