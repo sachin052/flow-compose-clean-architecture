@@ -16,7 +16,6 @@
 * [Contributing](#contributing)
 * [License](#license)
 * [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
@@ -195,8 +194,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/sachin033/lo
 
 * **Sachin Kumar** - *Senior Software Engineer* - [Sachin Kumar](https://github.com/sachin052 ) - **
 
-## Acknowledgements
-
-* [Sachin Kumar]()
-* [Sachin Kumar](https://github.com/othneildrew/Best-README-Template)
-* [Sachin Kumar](https://shields.io/)
