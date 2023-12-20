@@ -2,11 +2,9 @@
 <p align="center">
 
 
-  <h3 align="center">Test-Driven Development (TDD), Clean Architecture, multi-module support, Kotlin Flow, Jetpack Compose for UI, and the presence of unit tests.</h3>
+<h3 align="center">Test-Driven Development (TDD), Clean Architecture, multi-module support, Kotlin Flow, Jetpack Compose for UI, and the presence of unit tests.</h3>
 
- <a href="https://github.com/sachin033/low-compose-clean-architecture/">View Demo</a>
-[Demo.webm](https://github.com/sachin052/flow-compose-clean-architecture/assets/42666335/4f92900e-a5e8-4ee0-9fa1-7d431706f43a)
-
+ <a href="https://github.com/sachin052/flow-compose-clean-architecture/assets/42666335/4f92900e-a5e8-4ee0-9fa1-7d431706f43a">View Demo</a>
 
 
 ## Table Of Contents
