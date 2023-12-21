@@ -15,7 +15,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -70,12 +69,12 @@ fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hi
             )
 
             OutlinedTextField(
-                value = viewModel.password.collectAsState().value ?: "",
+                value = viewModel.password.collectAsStateWithLifecycle().value ?: "",
                 onValueChange = { viewModel.setPassword(it) },
                 visualTransformation = PasswordVisualTransformation(),
                 label = { Text(stringResource(R.string.password)) },
 
-                isError = !viewModel.isPasswordValid.collectAsState().value,
+                isError = !viewModel.isPasswordValid.collectAsStateWithLifecycle().value,
                 keyboardActions = KeyboardActions(
                     onDone = {
                     }
@@ -94,8 +93,8 @@ fun LoginScreen(navHostController: NavController, viewModel: LoginViewModel = hi
                     navHostController.navigate(AppRoutes.POST_SCREEN.routeName)
 
                 },
-                enabled = viewModel.isEmailValid.collectAsState().value &&
-                        viewModel.isPasswordValid.collectAsState().value,
+                enabled = viewModel.isEmailValid.collectAsStateWithLifecycle().value &&
+                        viewModel.isPasswordValid.collectAsStateWithLifecycle().value,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(Dimens.dimens50Dp)
