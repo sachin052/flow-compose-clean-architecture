@@ -1,26 +1,10 @@
 <br/>
 <p align="center">
-  <a href="https://github.com/sachin033/low-compose-clean-architecture/">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
-  <h3 align="center">Test-Driven Development (TDD), Clean Architecture, multi-module support, Kotlin Flow, Jetpack Compose for UI, and the presence of unit tests.</h3>
 
-  <p align="center">
-    An Awesome ReadME Generator To Jumpstart Your Projects!
-    <br/>
-    <br/>
-    <a href="https://github.com/sachin033/low-compose-clean-architecture/"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    <a href="https://github.com/sachin033/low-compose-clean-architecture/">View Demo</a>
-    .
-    <a href="https://github.com/sachin033/low-compose-clean-architecture//issues">Report Bug</a>
-    .
-    <a href="https://github.com/sachin033/low-compose-clean-architecture//issues">Request Feature</a>
-  </p>
-</p>
+<h3 align="center">Test-Driven Development (TDD), Clean Architecture, multi-module support, Kotlin Flow, Jetpack Compose for UI, and the presence of unit tests.</h3>
 
+ <a href="https://github.com/sachin052/flow-compose-clean-architecture/assets/42666335/4f92900e-a5e8-4ee0-9fa1-7d431706f43a">View Demo</a>
 
 
 ## Table Of Contents
@@ -32,7 +16,6 @@
 * [Contributing](#contributing)
 * [License](#license)
 * [Authors](#authors)
-* [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
@@ -211,8 +194,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/sachin033/lo
 
 * **Sachin Kumar** - *Senior Software Engineer* - [Sachin Kumar](https://github.com/sachin052 ) - **
 
-## Acknowledgements
-
-* [Sachin Kumar]()
-* [Sachin Kumar](https://github.com/othneildrew/Best-README-Template)
-* [Sachin Kumar](https://shields.io/)
